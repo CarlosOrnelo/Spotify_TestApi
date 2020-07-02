@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% block title %}
+{% endblock %}
+
+
+{% block content%}
+
+<title>Songs</title>
+
+<p></p>
+
+<div class="botao">
+    <form action="#" method="post">
+        <input type="text" name="musica">
+        <input type="text" name="artista">
+        <input type="submit" name="SubmitButton" value="Adicionar"input/>
+    </form>
+</div>
+
+
+<div id="musicas">
+<h4 id="music_text">Músicas</h4>
+{% for song, artist in passed_songs.items() %}
+<div class="musicdesc">
+    <button type="submit" onclick="deletarMusica('{{artist[2]}}', '{{artist[3]}}')" id="deleteButton"> <div id="mostrar">Remover</div> </button> 
+    <button type="submit" style="border: 0; background: transparent" onclick="tocarMusica('{{artist[2]}}')">
+        <img src="{{artist[1]}}"/> {{song}}, {{artist[0]}}
+    </button>
+</div>
+{% endfor %} 
+</div>
+
+
+<script>
+    function tocarMusica(song) {
+        console.log(song);
+        $.post("{{url_for('play')}}", {variavel: song}, function(data){});
+    };
+    
+    
+    function deletarMusica(musica, playlist) {
+        $.post("{{url_for ('remove')}}", {variavel: musica, variavelPlay: playlist}, function(data) {
+            var urlDestino = "http://127.0.0.1:5000/add";
+            window.location.href = urlDestino 
+        });
+    };
+
+</script>
+
+
+<script>
+    setInterval(function() {
+      $("#div_refresh").load(window.location.href + " #div_refresh");
+    }, 1000)
+</script>
+
+<div id="div_refresh">
+    <img src="{{current['imagem']}}" id="capa"/>
+    <p id="song_data">{{current['musica']}}</p> 
+    <p id="artist_data">{{current['artista']}}</p>
+    <div class = "slideContainer">
+        <input type="range" class="slider" min='{{current["inicio"]}}' max='{{current["duração"]}}' id="timeID" value='{{current["progresso"]}}'>
+    </div>
+</div>
+
+
+<div class="control">
+    <input type="submit" id="playButton" onclick="play()" value="Play" button/>
+    <input type="submit" id="pauseButton" onclick="pause()" value="Pause" button/>
+</div>
+
+
+<div class= "volume">
+    <input type="range" class="volRange" min="0" max="100" value="{{current['volume']}}" id="formControlRange">
+</div>
+
+<script>
+    document.getElementById('formControlRange').addEventListener("click", function(ev) {
+        ev.preventDefault();
+        
+        const name = document.getElementById("formControlRange").value;
+        $.post("{{ url_for('alter_volume') }}", {volume: name}, function(data) {}); 
+    });
+</script>
+
+<Script>
+    function pause() {
+        var pausa = undefined;
+        console.log(pausa);
+        $.post("{{url_for ('pause')}}", {pausa: 1}, function(data) {});
+    }
+
+    function play() {
+        var play = undefined;
+        console.log(play);
+        fetch("http://127.0.0.1:5000/play", {
+            method: "POST",
+            body: JSON.stringify(1)
+        });
+    }
+</Script>
+
+{% endblock %}
+

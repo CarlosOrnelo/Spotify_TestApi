@@ -1,0 +1,282 @@
+/* Referenciando a cor */
+body {background-color:rgb(33, 33, 33)}
+
+nav ul {
+    background-color: rgb(0, 0, 0);
+    list-style-type: none;
+    margin: 0;
+    padding: 2px 2px;
+}
+
+nav li {
+    display: inline;
+    color: rgb(121, 121, 121);
+    font-weight: bold;
+ }
+
+nav a {
+    padding: 14px 16px;
+    color: white;
+}
+
+.topnav input[type=text] {
+    float: right;
+    margin-top: 0.4%;
+    margin-right: 0.1%;
+    padding: 2px 2px;
+}
+
+#playlist_text {
+    color: white;
+    margin-left: 0.3%;
+}
+
+#music_text {
+    color: white;
+    margin-left: 1.2%;
+}
+
+
+/* Color of playlist description */
+.playdesc button:nth-of-type(1) {
+    color: white;
+}
+
+.playdesc button:nth-of-type(1):hover {
+    color: rgb(30, 215, 96);
+    position: relative;
+    right: -5px;
+}
+
+
+
+/* Playlist covers */
+.playdesc img {
+    border: 1px;
+    border-radius: 8px;
+    width: 150px;
+    height: 150px;
+}
+
+
+/* Remove Button on "Add" page */
+#deleteButton {
+    margin-left: 1px;
+    border: none;
+    color: rgb(59, 59, 59);
+    border-radius: 10px;
+    background: transparent;
+}
+
+#deleteButton:hover {
+    background-color: black;
+    content: "Remove";
+}
+
+/* Songs description on "Add" page */
+.musicdesc button:nth-of-type(2) {
+    color: white;
+}
+
+
+/* Songs covers */
+.musicdesc img {
+    border: 1px;
+    border-radius: 8px;
+    width: 50px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.musicdesc:hover #mostrar {
+    display: block;
+}
+
+.musicdesc {
+    width: max-content;
+}
+
+/* Name of artist and song */
+.musicdesc button:nth-of-type(2):hover {
+    color: rgb(30, 215, 96);
+    position: relative;
+    right: -5px;
+}
+
+/* Remove button */
+.musicdesc button:nth-of-type(1):hover #mostrar {
+    display: block;
+}
+
+/* Remove text */
+#mostrar {
+    display: none;
+}
+
+
+#musicas {
+    padding-bottom: 7%;
+}
+
+/* Song and artist input */
+.botao input:nth-of-type(1) {
+    margin-left: 1.2%;
+    border-radius: 1px 1px 1px 1px;
+    text-align: center;
+    border: none;
+}
+
+.botao input:nth-of-type(2) {
+    border-radius: 1px 1px 1px 1px;
+    text-align: center;
+    border: none;
+}
+
+/* Add button */
+.botao input:nth-of-type(3) {
+    color: white;
+    background-color: rgb(83, 83, 83);
+    border-color: rgb(83, 83, 83);
+    border-style: none;
+    border-radius: 5px 5px 5px 5px;
+    width: 100px;
+    height: 30px;
+}
+
+.botao input:nth-of-type(3):hover {
+    color: black;
+    background-color: rgb(30, 215, 96);
+    border-radius: 5px 5px 5px 5px;
+    width: 100px;
+    height: 30px; 
+    opacity: 1;
+}
+
+
+/* Player */
+#div_refresh {
+    text-align: left;
+    float: left;
+    position: fixed;
+    bottom: 0;
+    background-color: rgb(53, 53, 53);
+    width: 100%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    padding-top : 5px;
+}
+
+/* Volume range */
+.volume {
+    width: 10%;
+    bottom: 5%;
+    right: 3%;
+    position: fixed;
+}
+
+.volRange {
+    -webkit-appearance: none;
+    background: rgb(173, 173, 173);
+    outline: none;
+}
+
+.volRange::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: black;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+}
+
+.volRange.slider::-moz-range-thumb {
+    background: black;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+}
+
+/* Progress bar */
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    background: rgb(173, 173, 173);
+    opacity: 0.7;
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
+    border-radius: 10px;
+    box-shadow: 0px 1px 1px 1px;
+}
+
+.slider:hover{
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 10px;
+    height: 10px;
+    background: black;
+    border-radius: 50%;
+}
+
+.slider::-moz-range-thumb {
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 50%;
+}
+
+/* Nome da música */
+#song_data {
+    color: white;
+    padding-left: 70px;
+}
+
+/* Artist name */
+#artist_data {
+    color: white;
+    padding-left: 70px;
+}
+
+/* Album cover on the player */
+#capa {
+    float: left;
+    padding-left: 1px;
+    padding-top: 5px;
+    width: max-content;
+}
+
+
+
+/* Play and pause buttons */
+
+.control {
+    margin-left: 50%;
+    bottom: 5%;
+    position: fixed;
+    content: none;
+}
+
+.control input:nth-of-type(1),
+.control input:nth-of-type(2){
+    color: white;
+    background-color: rgb(83, 83, 83);
+    border-color: rgb(83, 83, 83);
+    border-style: none;
+    border-radius: 5px 5px 5px 5px;
+    width: 100px;
+    height: 30px; 
+}
+
+.control input:nth-of-type(1):hover,
+.control input:nth-of-type(2):hover{
+    color: black;
+    background-color: rgb(30, 215, 96);
+    border-radius: 5px 5px 5px 5px;
+    width: 100px;
+    height: 30px; 
+    opacity: 1;
+}

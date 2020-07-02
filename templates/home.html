@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title%}
+
+{% endblock %}
+
+<title>Home Page</title>
+
+
+{% block content %}
+
+<h4 id="playlist_text">Playlists</h4>
+
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/style.css') }}"> 
+
+{% for playlist, song in values.items() %}
+    <div class="playdesc">
+        <button type="submit" style="border: 0; background: transparent" onclick="goToPlaylist('{{song[2]}}')">
+            <img src="{{song[1]}}"/> {{playlist}}
+        </button>    
+    </div>  
+{% endfor %}
+
+
+<script>
+    function goToPlaylist(id) {
+        var urlDestino = "http://127.0.0.1:5000/add";
+        $.post(urlDestino, {playName: id}, 
+        function(data){
+            window.location.href = urlDestino});
+    };
+</script>
+
+{% endblock %}  
